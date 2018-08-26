@@ -2,7 +2,6 @@ using System;
 using System.Net;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Nekos.Sharp.EndPoints;
 using Nekos.Sharp.Responses;
 
 
@@ -14,27 +13,32 @@ namespace Nekos.Sharp
 
         private static string BaseURL = "https://nekos.life/api/v2";
 
-        public static async Task<NekoImg> GetImageAsync(SFWImages ImageType)
+        public static async Task<NekoImg> GetImageAsync(SFWTypes ImageType) 
         {
-            int imageIndex = (int)ImageType;
-            NekoImg ImageData = await GetJsonRespons<NekoImg>($"{BaseURL}/img/{NekosEndPoints.SFWEndPoints[imageIndex]}");
+             return await GetImageData(SFWImageType.GetSfwValue(ImageType));
+        }
+         public static async Task<NekoImg> GetImageAsync(NSFWTypes ImageType) 
+        {
+             return await GetImageData(NSFWImageTypes.GetNsfwValue(ImageType));
+        }
+        private static async Task<NekoImg> GetImageData(string Value)
+        {
+            NekoImg ImageData = await GetJsonResponse<NekoImg>($"{BaseURL}/img/{Value}");
             return ImageData;
         }
-
-        public static async Task<NekoImg> GetImageAsync(NSFWImages ImageType)
-        {
-            int imageIndex = (int)ImageType;
-            NekoImg ImageData = await GetJsonRespons<NekoImg>($"{BaseURL}/img/{NekosEndPoints.SFWEndPoints[imageIndex]}");
-            return ImageData;
-        }
-
         public static async Task<NekoWhy> GetWhyAsync()
         {
-            NekoWhy why = await GetJsonRespons<NekoWhy>($"{BaseURL}/why");
+            NekoWhy why = await GetJsonResponse<NekoWhy>($"{BaseURL}/why");
             return why;
         }
 
-        public static async Task<T> GetJsonRespons<T>(string Url) where T : new()
+        public static async Task<NekoFact> GetFactAsync()
+        {
+            NekoFact Fact = await GetJsonResponse<NekoFact>($"{BaseURL}/fact");
+            return Fact;
+        }
+
+        private static async Task<T> GetJsonResponse<T>(string Url) where T : new()
         {
             using(WebClient Web = new WebClient())
             {
@@ -45,6 +49,7 @@ namespace Nekos.Sharp
                 } 
                 catch(Exception)
                 {
+                    throw new Exception("Error in connecting to the API.");
                 }
                 await Task.CompletedTask;
                 return !string.IsNullOrEmpty(JsonData)? JsonConvert.DeserializeObject<T>(JsonData) : new T();
