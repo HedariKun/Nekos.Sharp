@@ -25,14 +25,6 @@ namespace Example
             NekoImg Data = await NekoClient.GetImageAsync(SFWTypes.Lewd);
            */
             NekoImg Data = await NekoClient.GetImageAsync(SFWTypes.Hug);
-            /*
-             you can get Fact by doing
-             NekoFact Data = await NekoClint.GetFactAsync();
-             then you can get it from Data.Fact;
-             or you can get why 
-             NekoWhy Data = await NekoClient.GetWhyAsync();
-             then you can get it from Data.Why;
-            */
             Console.Write(Data.ImageURl);
             Console.ReadKey();
         }
