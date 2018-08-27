@@ -4,55 +4,53 @@ using System.Collections.Generic;
 
 namespace Nekos.Sharp
 {
-
-      public enum NSFWTypes
+    public enum NSFWTypes
     {
-        HentaiGif ,
-        Pussy ,
-        NSFWNekoGif  ,
-        Lewd  ,
-        Les  ,
-        Kuni  ,
-        Cum  ,
-        Classic  ,
-        Boobs  ,
-        Bj  ,
-        Anal  ,
-        Yuri  ,
-        Trap  ,
-        Tits  ,
-        SmallBoobs  ,
-        PussyJpg  ,
-        Hentai  ,
-        CumJpg  ,
-        Solo  ,
-        Futanari  ,
-        HoloLewd  ,
-        Lewdk  ,
-        Spank  ,
-        Erokemo  ,
-        Ero  ,
-        Erofeet  ,
-        Blowjob  ,
-        Erok  ,
-        Keta  ,
-        Eroyuri  ,
-        Eron  ,
-        Holoero  ,
-        Solog  ,
-        Feetg  ,
-        NsfwAvatar  ,
-        Feet  ,
-        Holo  ,
-        Femdom  ,
-        Pwankg  ,
+        HentaiGif,
+        Pussy,
+        NSFWNekoGif,
+        Lewd,
+        Les,
+        Kuni,
+        Cum,
+        Classic,
+        Boobs,
+        Bj,
+        Anal,
+        Yuri,
+        Trap,
+        Tits,
+        SmallBoobs,
+        PussyJpg,
+        Hentai,
+        CumJpg,
+        Solo,
+        Futanari,
+        HoloLewd,
+        Lewdk,
+        Spank,
+        Erokemo,
+        Ero,
+        Erofeet,
+        Blowjob,
+        Erok,
+        Keta,
+        Eroyuri,
+        Eron,
+        Holoero,
+        Solog,
+        Feetg,
+        NsfwAvatar,
+        Feet,
+        Holo,
+        Femdom,
+        Pwankg,
         LewdKemo  
     }
 
     public class NSFWImageTypes
     {
-
-        private static readonly Dictionary<NSFWTypes, string> Dictionary = new Dictionary<NSFWTypes, string>()
+        private const Dictionary<NSFWTypes, string> Dictionary = new Dictionary<NSFWTypes, string>()
         {
             {NSFWTypes.HentaiGif, "Random_hentai_gif"},
             {NSFWTypes.Pussy, "pussy"},
@@ -102,6 +100,5 @@ namespace Nekos.Sharp
             Dictionary.TryGetValue(Type, out Value);
             return Value;
         }
-
     }  
 }
