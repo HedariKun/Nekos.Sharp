@@ -33,9 +33,53 @@ namespace Example
              NekoWhy Data = await NekoClient.GetWhyAsync();
              then you can get it from Data.Why;
             */
+            Console.Write(Data.ImageURl);
+            Console.ReadKey();
+        }
+    }
+}
+```
+
+Why Object Example
+```cs
+using System;
+using System.Threading.Tasks;
+using Nekos.Sharp;
+using Nekos.Sharp.Responses;
+
+namespace Example
+{
+    class Program
+    {
+        static async Task Main(string[] args)
+        {
+
+            NekoWhy Data = await NekoClient.GetWhyAsync();
+            Console.Write(Data.Why);
+            Console.ReadKey();
+        }
+    }
+}
+```
+Fact Object Example 
+ ```cs
+using System;
+using System.Threading.Tasks;
+using Nekos.Sharp;
+using Nekos.Sharp.Responses;
+
+namespace Example
+{
+    class Program
+    {
+        static async Task Main(string[] args)
+        {
+
+            NekoFact Data = await NekoClient.GetFactAsync();
             Console.Write(Data.Fact);
             Console.ReadKey();
         }
     }
 }
 ```
+
