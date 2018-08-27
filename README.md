@@ -7,7 +7,7 @@ using Nekos.Sharp
 
 to get Images you need to use the static Method GetImageAsync from NekoClient then you need to choose the image title you can choose from sfw and nsfw image 
 
- -SFW Example 
+ Examples 
  ```cs
 using System;
 using System.Threading.Tasks;
@@ -20,29 +20,20 @@ namespace Example
     {
         static async Task Main(string[] args)
         {
-            NekoImg Data = await NekoClient.GetImageAsync(SFWImages.Hug);
-            Console.Write(Data.ImageURl);
-            Console.ReadKey();
-        }
-    }
-}
-```
-
- -NSFW Example
- ```cs
- using System;
-using System.Threading.Tasks;
-using Nekos.Sharp;
-using Nekos.Sharp.Responses;
-
-namespace Example
-{
-    class Program
-    {
-        static async Task Main(string[] args)
-        {
-            NekoImg Data = await NekoClient.GetImageAsync(NSFWImages.Lewd);
-            Console.Write(Data.ImageURl);
+           /*
+            For Nsfw Image Change SFWTypes To NSFWTypes
+            NekoImg Data = await NekoClient.GetImageAsync(SFWTypes.Lewd);
+           */
+            NekoImg Data = await NekoClient.GetImageAsync(SFWTypes.Hug);
+            /*
+             you can get Fact by doing
+             NekoFact Data = await NekoClint.GetFactAsync();
+             then you can get it from Data.Fact;
+             or you can get why 
+             NekoWhy Data = await NekoClient.GetWhyAsync();
+             then you can get it from Data.Why;
+            */
+            Console.Write(Data.Fact);
             Console.ReadKey();
         }
     }
