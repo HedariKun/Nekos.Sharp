@@ -17,7 +17,7 @@ namespace Nekos.Sharp
         {
              return await GetImageData(SFWImageType.GetSfwValue(ImageType));
         }
-         public static async Task<NekoImg> GetImageAsync(NSFWTypes ImageType) 
+        public static async Task<NekoImg> GetImageAsync(NSFWTypes ImageType) 
         {
              return await GetImageData(NSFWImageTypes.GetNsfwValue(ImageType));
         }

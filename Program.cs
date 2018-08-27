@@ -9,9 +9,10 @@ namespace Example
     {
         static async Task Main(string[] args)
         {
-            NekoFact Data = await NekoClient.GetFactAsync();
+            NekoImg Data = await NekoClient.GetFactAsync(SFWTypes.Hug);
             Console.Write(Data.Fact);
             Console.ReadKey();
         }
     }
 }
+/* */
